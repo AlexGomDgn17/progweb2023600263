@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Básica</title>
+  <style>
+    .pantalla {
+      width: 220px;
+      height: 40px;
+      font-size: 18px;
+      text-align: right;
+      padding-right: 10px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .boton {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    /* Filas y columnas */
+    #btn7 { top: 80px;  left: 20px; }
+    #btn8 { top: 80px;  left: 80px; }
+    #btn9 { top: 80px;  left: 140px; }
+    #btnDiv { top: 80px;  left: 200px; }
+
+    #btn4 { top: 140px; left: 20px; }
+    #btn5 { top: 140px; left: 80px; }
+    #btn6 { top: 140px; left: 140px; }
+    #btnMul { top: 140px; left: 200px; }
+
+    #btn1 { top: 200px; left: 20px; }
+    #btn2 { top: 200px; left: 80px; }
+    #btn3 { top: 200px; left: 140px; }
+    #btnSub { top: 200px; left: 200px; }
+
+    #btn0 { top: 260px; left: 20px; }
+    #btnDot { top: 260px; left: 80px; }
+    #btnEq { top: 260px; left: 140px; }
+    #btnAdd { top: 260px; left: 200px; }
+  </style>
+  <script>
+    function btn_click(valor) {
+      const disp = document.getElementById('pantalla');
+      if (valor === '=') {
+        try {
+          disp.value = eval(disp.value);
+        } catch {
+          disp.value = 'Error';
+        }
+      } else {
+        disp.value += valor;
+      }
+    }
+    function btn_clear() {
+      document.getElementById('pantalla').value = '';
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="pantalla" class="pantalla" readonly>
+
+  <div id="btn7"    class="boton" onclick="btn_click('7')">7</div>
+  <div id="btn8"    class="boton" onclick="btn_click('8')">8</div>
+  <div id="btn9"    class="boton" onclick="btn_click('9')">9</div>
+  <div id="btnDiv"  class="boton" onclick="btn_click('/')">÷</div>
+
+  <div id="btn4"    class="boton" onclick="btn_click('4')">4</div>
+  <div id="btn5"    class="boton" onclick="btn_click('5')">5</div>
+  <div id="btn6"    class="boton" onclick="btn_click('6')">6</div>
+  <div id="btnMul"  class="boton" onclick="btn_click('*')">×</div>
+
+  <div id="btn1"    class="boton" onclick="btn_click('1')">1</div>
+  <div id="btn2"    class="boton" onclick="btn_click('2')">2</div>
+  <div id="btn3"    class="boton" onclick="btn_click('3')">3</div>
+  <div id="btnSub"  class="boton" onclick="btn_click('-')">−</div>
+
+  <div id="btn0"    class="boton" onclick="btn_click('0')">0</div>
+  <div id="btnDot"  class="boton" onclick="btn_click('.')">.</div>
+  <div id="btnEq"   class="boton" onclick="btn_click('=')">=</div>
+  <div id="btnAdd"  class="boton" onclick="btn_click('+')">+</div>
+
+  
+  <div id="btnClr" class="boton" style="top: 320px; left: 20px; width: 230px;" onclick="btn_clear()">
+    C
+  </div>
+</body>
+</html>

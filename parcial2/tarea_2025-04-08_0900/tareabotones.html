@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <style>
+      .cuadro {
+        background-color: green;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        color: white;
+        position: absolute;
+      }
+
+      #divA { top: 170px; left: 130px; }
+      #divS { top: 170px; left: 200px; }
+      #divD { top: 170px; left: 270px; }
+      #divW { top: 105px; left: 200px; }
+      #divZ { top: 170; left: 400px; }
+      #divX { top: 170; left: 470px; }
+    </style>
+
+    <script>
+      let activeBox = null;
+      const keyMap = {
+        'a': 'divA',
+        's': 'divS',
+        'd': 'divD',
+        'w': 'divW',
+        'z': 'divZ',
+        'x': 'divX',
+      };
+
+      document.addEventListener('keydown', function (e) {
+        const boxId = keyMap[e.key];
+        if (boxId) {
+          activeBox = document.getElementById(boxId);
+          activeBox.style.backgroundColor = 'green';
+        }
+      });
+
+      document.addEventListener('keyup', function () {
+        if (activeBox) {
+          activeBox.style.backgroundColor = 'yellow';
+          activeBox = null;
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="divD" class="cuadro">D</div>
+    <div id="divW" class="cuadro">W</div>
+    <div id="divX" class="cuadro">x</div>
+    <div id="divA" class="cuadro">A</div>
+    <div id="divZ" class="cuadro">Z</div>
+    <div id="divS" class="cuadro">S</div>
+  </body>
+</html>
+
